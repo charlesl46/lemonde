@@ -4,6 +4,11 @@ from bs4 import BeautifulSoup
 class Article:
     """
     A class to modelize Le Monde newspaper articles
+    - title : the title of the article
+    - link : the link of the article
+    - image : the image of the article
+    - type : the type of the article
+    - subject : the subject of the article
     """
     def __init__(self) -> None:
         pass
@@ -19,6 +24,9 @@ class Article:
 
     def _set_type(self,type : str) -> None:
         self.type = type
+
+    def _set_subject(self,subject : str) -> None:
+        self.subject = subject
 
 class LeMonde:
     """
@@ -36,6 +44,8 @@ class LeMonde:
             title = div.select_one(".article__title")
             article._set_title(title.text)
             link = div.find('a')["href"]
+            subject = str(link.split('/')[3])
+            article._set_subject(subject)
             article._set_link(link)
             try:
                 image = div.find("img")["src"]
@@ -52,7 +62,6 @@ class LeMonde:
             article._set_type(type)
             articles.append(article)
         return articles
-
 
 
 
