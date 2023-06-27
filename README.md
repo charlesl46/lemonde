@@ -3,7 +3,7 @@ A python lib to access lemonde newspaper articles
 
 ## Usage 
 ```python
-from lemonde import LeMonde
+from lemonde.lemonde import LeMonde
 
 lm = LeMonde()
 for article in lm.get_articles():
