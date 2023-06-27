@@ -36,6 +36,11 @@ class LeMonde:
         pass
 
     def get_articles(self) -> list[Article]:
+        """This method returns a list of Article objects now available on Le Monde's website homepage
+
+        Returns:
+            list[Article]: the list of articles to be returned
+        """
         articles = []
         response = requests.get("https://www.lemonde.fr/")
         soup = BeautifulSoup(response.text,"html.parser")
@@ -62,6 +67,7 @@ class LeMonde:
             article._set_type(type)
             articles.append(article)
         return articles
+
 
 
 

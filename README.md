@@ -1,2 +1,5 @@
 # lemonde
-A python lib to access lemonde newspaper
+A python lib to access lemonde newspaper articles
+
+## Usage 
+
